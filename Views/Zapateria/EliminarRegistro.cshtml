@@ -1,0 +1,8 @@
+﻿@model Marca
+
+<h1>¿Esta seguro de eliminar la siguiente marca?</h1>
+<p>Esta accion no puede deshacerse</p>
+<span>Id: @Model.Id</span>
+<span>Nombre: @Model.NombreDeMarca</span>
+<p></p>
+<a asp-action="ListadoRegistros" class="btn btn-light">Cancelar</a><a asp-action="ConfirmacionEliminar" asp-route-id="@Model.Id" class="btn btn-danger">Eliminar</a>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Marca>
+
+@{
+    ViewData["Title"] = "ListadoRegistros";
+}
+
+<h1>Listado Registros</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="AgregarRegistro">Crear nueva entrada</a><a class="btn btn-primary" asp-action="CargarRegistros">Cargar registros</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreDeMarca)
+            </th>
+             <th>
+                Modelo
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreDeMarca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdModeloNavigation.ModeloDeZapato)
+            </td>
+           
+            <td>
+                <a asp-action="EditarRegistro" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="EliminarRegistro" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
